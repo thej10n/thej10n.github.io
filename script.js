@@ -1,7 +1,8 @@
 // this is the worst code i have ever written
 var guessNum = 0
 const towerInfo = {
-  
+
+  // Ring 1
   "toast": ["ToAST", 0, "Ring 1", "Tower", 0],
   "toa": ["ToA", 0, "Ring 1", "Tower", 0],
   "tom": ["ToM", 1, "Ring 1", "Tower", 0],
@@ -15,7 +16,8 @@ const towerInfo = {
   "tots": ["ToTS", 6, "Ring 1", "Tower", 0],
   "tt": ["TT", 7, "Ring 1", "Tower", 0],
   "cols": ["CoLS", 5, "Ring 1", "Citadel", 2],
-  
+
+  // Ring 2
   "tops": ["ToPS", 1, "Ring 2", "Tower", 0],
   "tobh": ["ToBH", 2, "Ring 2", "Tower", 0],
   "tooh": ["ToOH", 2, "Ring 2", "Tower", 0],
@@ -28,20 +30,22 @@ const towerInfo = {
   "toes": ["ToES", 6, "Ring 2", "Tower", 0],
   "todc": ["ToDC", 7, "Ring 2", "Tower", 0],
   "cows": ["CoWS", 6, "Ring 2", "Citadel", 3],
-  
+
+  // Ring 3
   "toft": ["ToFT", 0, "Ring 3", "Tower", 0],
   "toic": ["ToIC", 1, "Ring 3", "Tower", 0],
   "toat": ["ToAT", 1, "Ring 3", "Tower", 0],
   "tods": ["ToDS", 1, "Ring 3", "Tower", 0],
   "tof": ["ToF", 2, "Ring 3", "Tower", 0],
   "tower": ["ToWER", 2, "Ring 3", "Tower", 0],
-  "tosi": ["ToSI", 2, "Ring 3", "Tower", 0],
+  "tosi": ["ToSI", 3, "Ring 3", "Tower", 0],
   "towh": ["ToWH", 3, "Ring 3", "Tower", 0],
   "told": ["ToLD", 3, "Ring 3", "Tower", 0],
   "tod": ["ToD", 4, "Ring 3", "Tower", 0],
   "toc": ["ToC", 7, "Ring 3", "Tower", 0],
   "cohad": ["CoHaD", 5, "Ring 3", "Citadel", 5],
-  
+
+  // Ring 4
   "tosh": ["ToSH", 0, "Ring 4", "Tower", 0],
   "togg": ["ToGG", 1, "Ring 4", "Tower", 0],
   "totm": ["ToTM", 2, "Ring 4", "Tower", 0],
@@ -55,7 +59,8 @@ const towerInfo = {
   "tocn": ["ToCN", 6, "Ring 4", "Tower", 0],
   "toi": ["ToI", 9, "Ring 4", "Tower", 1],
   "cou": ["CoU", 5, "Ring 4", "Citadel", 1],
-  
+
+  // Ring 5
   "tonv": ["ToNV", 1, "Ring 5", "Tower", 0],
   "togkd": ["ToGKD", 2, "Ring 5", "Tower", 0],
   "tors": ["ToRS", 3, "Ring 5", "Tower", 0],
@@ -69,7 +74,8 @@ const towerInfo = {
   "toib": ["ToIB", 7, "Ring 5", "Tower", 0],
   "tofn": ["ToFN", 9, "Ring 5", "Tower", 0],
   "cocr": ["CoCR", 6, "Ring 5", "Citadel", 1],
-  
+
+  // Ring 6
   "tofj": ["ToFJ", 2, "Ring 6", "Tower", 0],
   "toep": ["ToEP", 3, "Ring 6", "Tower", 0],
   "torr": ["ToRR", 3, "Ring 6", "Tower", 0],
@@ -82,7 +88,8 @@ const towerInfo = {
   "tosm": ["ToSM", 8, "Ring 6", "Tower", 2],
   "toim": ["ToIM", 9, "Ring 6", "Tower", 0],
   "cosr": ["CoSR", 6, "Ring 6", "Citadel", 2],
-  
+
+  // Ring 7
   "torb": ["ToRB", 3, "Ring 7", "Tower", 0],
   "tofl": ["ToFL", 4, "Ring 7", "Tower", 1],
   "tocc": ["ToCC", 4, "Ring 7", "Tower", 1],
@@ -96,7 +103,8 @@ const towerInfo = {
   "totb": ["ToTB", 8, "Ring 7", "Tower", 0],
   "toer": ["ToER", 10, "Ring 7", "Tower", 2],
   "cote": ["CoTE", 6, "Ring 7", "Citadel", 3],
-  
+
+  // Ring 8
   "tosss": ["ToSSS", 1, "Ring 8", "Tower", 0],
   "tonba": ["ToNBA", 2, "Ring 8", "Tower", 0],
   "tovf": ["ToVF", 4, "Ring 8", "Tower", 0],
@@ -110,7 +118,8 @@ const towerInfo = {
   "toei": ["ToEI", 8, "Ring 8", "Tower", 1],
   "togf": ["ToGF", 10, "Ring 8", "Tower", 2],
   "cochs": ["CoCHS", 5, "Ring 8", "Citadel", 2],
-  
+
+  // Ring 9
   "togo": ["ToGO", 5, "Ring 9", "Tower", 0],
   "toqt": ["ToQT", 6, "Ring 9", "Tower", 0],
   "tobbb": ["ToBBB", 6, "Ring 9", "Tower", 0],
@@ -125,7 +134,8 @@ const towerInfo = {
   "tocr": ["ToCR", 10, "Ring 9", "Tower", 0],
   "tocp": ["ToCP", 10, "Ring 9", "Tower", 3],
   "col": ["CoL", 6, "Ring 9", "Citadel", 1],
-  
+
+  // Zone 1
   "tozd": ["ToZD", 0, "Zone 1", "Tower", 0],
   "tophat": ["ToPHaT", 0, "Zone 1", "Tower", 0],
   "toad": ["ToAD", 1, "Zone 1", "Tower", 0],
@@ -142,7 +152,8 @@ const towerInfo = {
   "toz": ["ToZ", 6, "Zone 1", "Tower", 1],
   "totl": ["ToTL", 7, "Zone 1", "Tower", 0],
   "cop": ["CoP", 6, "Zone 1", "Citadel", 1],
-  
+
+  // Zone 2
   "tob": ["ToB", 1, "Zone 2", "Tower", 0],
   "tosa": ["ToSA", 1, "Zone 2", "Tower", 0],
   "togla": ["ToGLA", 2, "Zone 2", "Tower", 0],
@@ -158,7 +169,8 @@ const towerInfo = {
   "tocm": ["ToCM", 6, "Zone 2", "Tower", 1],
   "todt": ["ToDT", 7, "Zone 2", "Tower", 1],
   "cogs": ["CoGS", 5, "Zone 2", "Citadel", 1],
-  
+
+  // Zone 3
   "tosfu": ["ToSFU", 0, "Zone 3", "Tower", 0],
   "tood": ["ToOD", 0, "Zone 3", "Tower", 0],
   "tobb": ["ToBB", 1, "Zone 3", "Tower", 0],
@@ -175,7 +187,8 @@ const towerInfo = {
   "tocaup": ["ToCaUP", 5, "Zone 3", "Tower", 1],
   "tohh": ["ToHH", 8, "Zone 3", "Tower", 0],
   "cots": ["CoTS", 3, "Zone 3", "Citadel", 0],
-  
+
+  // Zone 4
   "tofsc": ["ToFSC", 0, "Zone 4", "Tower", 0],
   "toac": ["ToAC", 1, "Zone 4", "Tower", 0],
   "tofast": ["ToFaST", 2, "Zone 4", "Tower", 0],
@@ -191,7 +204,8 @@ const towerInfo = {
   "toif": ["ToIF", 7, "Zone 4", "Tower", 0],
   "toaaa": ["ToAAA", 8, "Zone 4", "Tower", 2],
   "coq": ["CoQ", 6, "Zone 4", "Citadel", 1],
-  
+
+  // Zone 5
   "tost": ["ToST", 2, "Zone 5", "Tower", 1],
   "tossss": ["ToSSSS", 2, "Zone 5", "Tower", 0],
   "tofv": ["ToFV", 3, "Zone 5", "Tower", 0],
@@ -207,7 +221,8 @@ const towerInfo = {
   "topz": ["ToPZ", 7, "Zone 5", "Tower", 1],
   "toar": ["ToAR", 9, "Zone 5", "Tower", 0],
   "coce": ["CoCE", 5, "Zone 5", "Citadel", 1],
-  
+
+  // Zone 6
   "tofd": ["ToFD", 2, "Zone 6", "Tower", 0],
   "torc": ["ToRC", 3, "Zone 6", "Tower", 0],
   "tocf": ["ToCF", 4, "Zone 6", "Tower", 0],
@@ -222,7 +237,8 @@ const towerInfo = {
   "totda": ["ToTDA", 8, "Zone 6", "Tower", 0],
   "tomm": ["ToMM", 9, "Zone 6", "Tower", 1],
   "cotaw": ["CoTaW", 5, "Zone 6", "Citadel", 2],
-  
+
+  // Zone 7
   "toj": ["ToJ", 1, "Zone 7", "Tower", 0],
   "tosv": ["ToSV", 2, "Zone 7", "Tower", 0],
   "torw": ["ToRW", 2, "Zone 7", "Tower", 0],
@@ -238,7 +254,8 @@ const towerInfo = {
   "tofm": ["ToFM", 8, "Zone 7", "Tower", 0],
   "toua": ["ToUA", 9, "Zone 7", "Tower", 1],
   "coact": ["CoACT", 6, "Zone 7", "Citadel", 1],
-  
+
+  // Zone 8
   "tomit": ["ToMIT", 2, "Zone 8", "Tower", 0],
   "toct": ["ToCT", 2, "Zone 8", "Tower", 0],
   "toatd": ["ToATD", 3, "Zone 8", "Tower", 0],
@@ -255,7 +272,8 @@ const towerInfo = {
   "toae": ["ToAE", 8, "Zone 8", "Tower", 0],
   "todie": ["ToDIE", 10, "Zone 8", "Tower", 0],
   "cope": ["CoPE", 6, "Zone 8", "Citadel", 3],
-  
+
+  // FR
   "somd": ["SoMD", 0, "FR", "Steeple", 0],
   "tojgf": ["ToJGF", 0, "FR", "Tower", 0],
   "sop": ["SoP", 1, "FR", "Steeple", 0],
@@ -272,7 +290,8 @@ const towerInfo = {
   "sotp": ["SoTP", 6, "FR", "Steeple", 0],
   "tomb": ["ToMB", 7, "FR", "Tower", 0],
   "cown": ["CoWN", 5, "FR", "Citadel", 1],
-  
+
+  // GoE
   "sobj": ["SoBJ", 0, "GoE", "Steeple", 0],
   "sods": ["SoDS", 0, "GoE", "Steeple", 0],
   "soif": ["SoIF", 1, "GoE", "Steeple", 0],
@@ -286,7 +305,8 @@ const towerInfo = {
   "sofw": ["SoFW", 4, "GoE", "Steeple", 0],
   "soba": ["SoBA", 5, "GoE", "Steeple", 0],
   "topa": ["ToPA", 5, "GoE", "Tower", 0],
-  
+
+  // SA
   "soris": ["SoRIS", 3, "SA", "Steeple", 0],
   "sora": ["SoRA", 3, "SA", "Steeple", 0],
   "toai": ["ToAI", 3, "SA", "Tower", 1],
@@ -300,7 +320,8 @@ const towerInfo = {
   "totd": ["ToTD", 5, "SA", "Tower", 0],
   "soma": ["SoMA", 6, "SA", "Steeple", 0],
   "somb": ["SoMB", 6, "SA", "Steeple", 0],
-  
+
+  // LR
   "toew": ["ToEW", 1, "LR", "Tower", 0],
   "totst": ["ToTST", 2, "LR", "Tower", 0],
   "toloz": ["ToLOZ", 3, "LR", "Tower", 0],
@@ -312,12 +333,13 @@ const towerInfo = {
   "totem": ["ToTEM", 6, "LR", "Tower", 1],
   "touh": ["ToUH", 7, "LR", "Tower", 0],
   "cois": ["CoIS", 3, "LR", "Citadel", 1],
-  
+
+  // AT
   "tofz": ["ToFZ", 1, "AT", "Tower", 0],
   "tovt": ["ToVT", 2, "AT", "Tower", 0],
   "tocwc": ["ToCWC", 3, "AT", "Tower", 0],
   "towmt": ["ToWMT", 4, "AT", "Tower", 0],
-  "towia": ["ToWIA", 4, "AT", "Tower", 0],
+  "towia": ["ToWIA", 5, "AT", "Tower", 0],
   "towow": ["ToWoW", 5, "AT", "Tower", 0],
   "tosr": ["ToSR", 5, "AT", "Tower", 0],
   "tolll": ["ToLLL", 5, "AT", "Tower", 1],
@@ -326,7 +348,8 @@ const towerInfo = {
   "tomd": ["ToMD", 6, "AT", "Tower", 1],
   "torh": ["ToRH", 6, "AT", "Tower", 0],
   "towf": ["ToWF", 8, "AT", "Tower", 0],
-  
+
+  // PA
   "somm": ["SoMM", 0, "PA", "Steeple", 0],
   "soau": ["SoAU", 2, "PA", "Steeple", 0],
   "sosis": ["SoSIS", 3, "PA", "Steeple", 0],
@@ -337,9 +360,10 @@ const towerInfo = {
   "socf": ["SoCF", 4, "PA", "Steeple", 0],
   "souc": ["SoUC", 4, "PA", "Steeple", 0],
   "tottt": ["ToTTT", 4, "PA", "Tower", 0],
-  
   "soub": ["SoUB", 5, "PA", "Steeple", 0],
   "sodd": ["SoDD", 5, "PA", "Steeple", 0],
+
+  // AA
   "sobt": ["SoBT", 1, "AA", "Steeple", 0],
   "soas": ["SoAS", 1, "AA", "Steeple", 0],
   "soro": ["SoRO", 2, "AA", "Steeple", 0],
@@ -350,7 +374,8 @@ const towerInfo = {
   "sowc": ["SoWC", 4, "AA", "Steeple", 0],
   "somc": ["SoMC", 5, "AA", "Steeple", 1],
   "toia": ["ToIA", 5, "AA", "Tower", 2],
-  
+
+  // PoM
   "tomdc": ["ToMDC", 0, "PoM", "Tower", 0]
 }
 var answerIndex = Date.now() % Object.keys(towerInfo).length
