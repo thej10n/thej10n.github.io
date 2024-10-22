@@ -273,6 +273,25 @@ const towerInfo = {
   "todie": ["ToDIE", 10, "Zone 8", "Tower", 0],
   "cope": ["CoPE", 6, "Zone 8", "Citadel", 3],
 
+  // Zone 9
+  "todtd": ["ToDTD", 3, "Zone 9", "Tower", 0],
+  "tols": ["ToLS", 4, "Zone 9", "Tower", 1],
+  "toabcd": ["ToABCD", 4, "Zone 9", "Tower", 0],
+  "tobl": ["ToBL", 4, "Zone 9", "Tower", 0],
+  "tosrd": ["ToSRD", 5, "Zone 9", "Tower", 0],
+  "tofu": ["ToFU", 5, "Zone 9", "Tower", 0],
+  "tonn": ["ToNN", 5, "Zone 9", "Tower", 3],
+  "tofcb": ["ToFCB", 5, "Zone 9", "Tower", 1],
+  "toec": ["ToEC", 6, "Zone 9", "Tower", 0],
+  "tomf": ["ToMF", 6, "Zone 9", "Tower", 1],
+  "tobbbb": ["ToBBBB", 6, "Zone 9", "Tower", 0],
+  "tovite": ["ToVITE", 6, "Zone 9", "Tower", 1],
+  "tohr": ["ToHR", 7, "Zone 9", "Tower", 0],
+  "topb": ["ToPB", 7, "Zone 9", "Tower", 1],
+  "towww": ["ToWWW", 9, "Zone 9", "Tower", 0],
+  "toemp": ["ToEMP", 10, "Zone 9", "Tower", 0],
+  "coic": ["CoIC", 6, "Zone 9", "Citadel", 2],
+
   // FR
   "somd": ["SoMD", 0, "FR", "Steeple", 0],
   "tojgf": ["ToJGF", 0, "FR", "Tower", 0],
@@ -399,6 +418,7 @@ const areaInfo = {
   "Zone 6": [1, 6, 0],
   "Zone 7": [1, 7, 0],
   "Zone 8": [1, 8, 0],
+  "Zone 9": [1, 9, 0],
   "FR": [0, 1, 1],
   "GoE": [0, 2, 1],
   "SA": [0, 4, 1],
