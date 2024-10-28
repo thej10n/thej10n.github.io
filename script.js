@@ -1,6 +1,6 @@
 // this is the worst code i have ever written
 var guessNum = 0
-const towerInfo = {
+var towerInfo = {
 
   // Ring 1
   "toast": ["ToAST", 0, "Ring 1", "Tower", 0],
@@ -325,6 +325,19 @@ const towerInfo = {
   "soba": ["SoBA", 5, "GoE", "Steeple", 0],
   "topa": ["ToPA", 5, "GoE", "Tower", 0],
 
+  // LR
+  "toew": ["ToEW", 1, "LR", "Tower", 0],
+  "totst": ["ToTST", 2, "LR", "Tower", 0],
+  "toloz": ["ToLOZ", 3, "LR", "Tower", 0],
+  "todl": ["ToDL", 4, "LR", "Tower", 0],
+  "tooo": ["ToOO", 4, "LR", "Tower", 0],
+  "towaw": ["ToWaW", 5, "LR", "Tower", 0],
+  "tocs": ["ToCS", 5, "LR", "Tower", 1],
+  "totj": ["ToTJ", 6, "LR", "Tower", 0],
+  "totem": ["ToTEM", 6, "LR", "Tower", 1],
+  "touh": ["ToUH", 7, "LR", "Tower", 0],
+  "cois": ["CoIS", 3, "LR", "Citadel", 1],
+  
   // SA
   "soris": ["SoRIS", 3, "SA", "Steeple", 0],
   "sora": ["SoRA", 3, "SA", "Steeple", 0],
@@ -339,19 +352,6 @@ const towerInfo = {
   "totd": ["ToTD", 5, "SA", "Tower", 0],
   "soma": ["SoMA", 6, "SA", "Steeple", 0],
   "somb": ["SoMB", 6, "SA", "Steeple", 0],
-
-  // LR
-  "toew": ["ToEW", 1, "LR", "Tower", 0],
-  "totst": ["ToTST", 2, "LR", "Tower", 0],
-  "toloz": ["ToLOZ", 3, "LR", "Tower", 0],
-  "todl": ["ToDL", 4, "LR", "Tower", 0],
-  "tooo": ["ToOO", 4, "LR", "Tower", 0],
-  "towaw": ["ToWaW", 5, "LR", "Tower", 0],
-  "tocs": ["ToCS", 5, "LR", "Tower", 1],
-  "totj": ["ToTJ", 6, "LR", "Tower", 0],
-  "totem": ["ToTEM", 6, "LR", "Tower", 1],
-  "touh": ["ToUH", 7, "LR", "Tower", 0],
-  "cois": ["CoIS", 3, "LR", "Citadel", 1],
 
   // AT
   "tofz": ["ToFZ", 1, "AT", "Tower", 0],
@@ -397,10 +397,39 @@ const towerInfo = {
   // PoM
   "tomdc": ["ToMDC", 0, "PoM", "Tower", 0]
 }
+var PoMSCInfo = {
+  "toxic": ["ToXIC", 9, "PoM", "Tower", 0],
+  "toolc": ["ToOLC", 9, "PoM", "Tower", 4],
+  "tovm": ["ToVM", 10, "PoM", "Tower", 2],
+  "tose": ["ToSE", 10, "PoM", "Tower", 3],
+  "tovh": ["ToVH", 11, "PoM", "Tower", 0],
+  "towm": ["ToWM", 11, "PoM", "Tower", 1],
+  "toev": ["ToEV", 11, "PoM", "Tower", 3],
+  "totrp": ["ToTRP", 11, "PoM", "Tower", 0],
+  "tobf": ["ToBF", 12, "PoM", "Tower", 3],
+  "tosf": ["ToSF", 12, "PoM", "Tower", 2],
+  "coiv": ["CoIV", 12, "PoM", "Citadel", 5]
+}
+var miniInfo = {
+  "neat": ["NEAT", 0, "Ring 1", "Mini-Tower", 0],
+  "mat": ["MAT", 0, "Ring 2", "Mini-Tower", 0],
+  "pat": ["PAT", 0, "PA", "Mini-Tower", 0],
+  "lat": ["LAT", 3, "Ring 5", "Mini-Tower", 0],
+  "wbat": ["WBAT", 4, "Ring 4", "Mini-Tower", 0],
+  "tat": ["LAT", 5, "Ring 3", "Mini-Tower", 0],
+  "fnat": ["LAT", 5, "Ring 6", "Mini-Tower", 0]
+}
+var PoMMiniInfo = {
+  "wat": ["WAT", 10, "PoM", "Mini-Tower", 0]
+}
+var SoFMInfo = {
+  "sofm": ["SoFM", 1, "FR", "Steeple", 0]
+}
+var newTowerInfo = {...towerInfo}
 var answerIndex = Date.now() % Object.keys(towerInfo).length
-const difficulties = ["Easy", "Medium", "Hard", "Difficult", "Challenging", "Intense", "Remorseless", "Insane", "Extreme", "Terrifying", "Catastrophic"]
-const lengths = ["Regular (<20m)", "Long (20-30m)", "Very Long (30-45m)", "Extremely Long (45-60m)", "Ridiculously Long (60-90m)", "Inhumanely Long (90+m)"]
-const areaInfo = {
+var difficulties = ["Easy", "Medium", "Hard", "Difficult", "Challenging", "Intense", "Remorseless", "Insane", "Extreme", "Terrifying", "Catastrophic", "Horrific", "Unreal"]
+var lengths = ["Regular (<20m)", "Long (20-30m)", "Very Long (30-45m)", "Extremely Long (45-60m)", "Ridiculously Long (60-90m)", "Inhumanely Long (90+m)"]
+var areaInfo = {
   "Ring 1": [0, 1, 0],
   "Ring 2": [0, 2, 0],
   "Ring 3": [0, 3, 0],
@@ -421,17 +450,17 @@ const areaInfo = {
   "Zone 9": [1, 9, 0],
   "FR": [0, 1, 1],
   "GoE": [0, 2, 1],
-  "SA": [0, 4, 1],
   "LR": [0, 5, 1],
+  "SA": [0, 5, 2],
   "AT": [0, 6, 1],
   "PA": [1, 1, 1],
   "AA": [1, 2, 1],
   "PoM": [1, 3, 1]
 }
 function modifyTable(row, column, text) {
-  const guessTable = document.getElementById("guesses");
-  const guessRow = guessTable.getElementsByTagName("tr")[row + 1];
-  const guessColumn = guessRow.getElementsByTagName("td")[column];
+  var guessTable = document.getElementById("guesses");
+  var guessRow = guessTable.getElementsByTagName("tr")[row + 1];
+  var guessColumn = guessRow.getElementsByTagName("td")[column];
   guessColumn.innerHTML = text;
 }
 function areaCategoryTest(a, b) {
@@ -446,12 +475,19 @@ function areaCategoryTest(a, b) {
   }
   return false;
 }
+function extendArray(a, e) {
+  var k = Object.keys(e)
+  for (i = 0; i < k.length; i++) {
+    a[k[i]] = e[k[i]]
+  }
+  return a
+}
 function submit() {
-  const input = document.getElementById("towerinput").value;
-  const towerData = towerInfo[input.toLowerCase()];
-  const answerData = towerInfo[Object.keys(towerInfo)[answerIndex]];
-  const towerAreaInfo = areaInfo[towerData[2]];
-  const answerAreaInfo = areaInfo[answerData[2]];
+  var input = document.getElementById("towerinput").value;
+  var towerData = newTowerInfo[input.toLowerCase()];
+  var answerData = newTowerInfo[Object.keys(newTowerInfo)[answerIndex]];
+  var towerAreaInfo = areaInfo[towerData[2]];
+  var answerAreaInfo = areaInfo[answerData[2]];
   if (typeof(towerData) !== "undefined") {
     document.getElementById("towerinput").value = "";
 
@@ -518,12 +554,28 @@ function submit() {
 }
 function reset() {
   guessNum = 0;
-  answerIndex = Date.now() % Object.keys(towerInfo).length
+  newTowerInfo = {...towerInfo}
+  if (document.getElementById("includepom").checked) {
+    newTowerInfo = extendArray(newTowerInfo, PoMSCInfo)
+    if (document.getElementById("includemini").checked) {
+      newTowerInfo = extendArray(newTowerInfo, PoMMiniInfo)
+    }
+  }
+  if (document.getElementById("includemini").checked) {
+    newTowerInfo = extendArray(newTowerInfo, miniInfo)
+  }
+  if (document.getElementById("includesofm").checked) {
+    newTowerInfo = extendArray(newTowerInfo, SoFMInfo)
+  }
+  answerIndex = Date.now() % Object.keys(newTowerInfo).length
   for (r = 0; r < 6; r++) {
     for (c = 0; c < 5; c++) {
-      modifyTable(r, c, "");
+      modifyTable(r, c, "&#x200B;");
     }
   }
   document.getElementById("feedback").innerHTML = "0/6 guesses";
   document.getElementById("towerinput").value = "";
+}
+function toggle() {
+  document.body.classList.toggle("darkMode")
 }
