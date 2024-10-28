@@ -98,7 +98,7 @@ var towerInfo = {
   "tongue": ["ToNGUE", 5, "Ring 7", "Tower", 1],
   "toned": ["ToNED", 6, "Ring 7", "Tower", 1],
   "tou": ["ToU", 6, "Ring 7", "Tower", 1],
-  "tovv": ["ToVV", 6, "Ring 7", "Tower", 0],
+  "toyv": ["ToYV", 6, "Ring 7", "Tower", 0],
   "toeh": ["ToEH", 7, "Ring 7", "Tower", 1],
   "totb": ["ToTB", 8, "Ring 7", "Tower", 0],
   "toer": ["ToER", 10, "Ring 7", "Tower", 2],
