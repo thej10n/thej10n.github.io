@@ -1,4 +1,41 @@
 <html>
+  <head>
+    <style>
+      html {
+        font-family: system-ui;
+        font-size: 20px;
+      }
+      body {
+        background: #DDD;
+      }
+      table {
+        font-family: system-ui;
+        width: 100%;
+      }
+      td, th {
+        text-align: left;
+        padding: 10;
+      }
+      tr:nth-child(even) {
+        background-color: #EEE;
+      }
+      tr:nth-child(odd) {
+        background-color: #FFF;
+      }
+      .darkMode {
+        background: #000;
+        color: #FFF;
+      }
+      .darkMode tr:nth-child(even) {
+        background: #111;
+        color: #FFF;
+      }
+      .darkMode tr:nth-child(odd) {
+        background: #222;
+        color: #FFF;
+      }
+    </style>
+  </head>
   <script src="script.js"></script>
   <h1>
     JToRdle // by thej10n
@@ -10,6 +47,21 @@
   <button type="reset" onclick="reset()">
     Reset
   </button>
+  <button type="togglemode" onclick="toggle()">
+    Toggle light/dark mode
+  </button>
+  <br><br>
+  <input type="checkbox" id="includepom">
+    Include Pit of Misery SCs
+  </input>
+  <input type="checkbox" id="includemini">
+    Include Mini Towers
+  </input>
+  <input type="checkbox" id="includesofm">
+    Include SoFM
+  </input>
+  <br>
+  <b>Settings do not take effect until the game is reset.</b>
   <p id="feedback">0/6 guesses</p>
   <table id="guesses" style="font-size: 20;">
     <tr>
@@ -20,46 +72,46 @@
       <th>Length</th>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
+      <td>&#x200B;</td>
     </tr>
   </table>
   <p id="rules">
@@ -70,7 +122,8 @@
       Guess the mystery JToH tower within 6 guesses. Enter the tower acronym and press "Submit" to guess. Press "Reset" to reset the game.<br>
       <b>Name: </b>Length of the tower's acronym. 🔼=longer, 🔽=shorter, 🟩=correct<br>
       <b>Difficulty: </b>Difficulty of the tower. 🔼=higher, 🔽=lower, 🟩=correct<br>
-      <b>Area: </b>Location of the tower. 🟥=wrong world, 🔼=higher, 🔽=lower, 🔄=subrealm, 🟩=correct<br>
+      <b>Area: </b>Location of the tower. 🟥=wrong world, 🔼=higher, 🔽=lower, 🔄=connected, 🟩=correct<br>
+      <b>(NOTE: </b>Lost River and Silent Abyss are connected to both each other and Ring 5.)<br>
       <b>Tower Type: </b>Type of the tower. 🟥=incorrect, 🟩=correct<br>
       <b>Length: </b>Playtime of the tower. 🔼=longer, 🔽=shorter, 🟩=correct
     </div>
@@ -80,30 +133,10 @@
       Update Log:
     </h2>
     <div style="line-height: 2;">
+      <b>[28-10-2024]</b> settings + small design update <br>
       <b>[22-10-2024]</b> zone ninth <br>
       <b>[27-05-2024]</b> fixed some outdated difficulties <br>
       <b>[26-05-2024]</b> release
     </div>
   </p>
 </html>
-<style>
-  html {
-    background: #AAA;
-    font-family: "Noto Mono", monospace;
-    text-shadow: 2px 2px 2px #777;
-  }
-  table {
-    font-family: "Noto Mono", monospace;
-    width: 100%;
-  }
-  td, th {
-    text-align: left;
-    padding: 10;
-  }
-  tr:nth-child(even) {
-    background-color: #BBB;
-  }
-  tr:nth-child(odd) {
-    background-color: #CCC;
-  }
-</style>
