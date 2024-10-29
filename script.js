@@ -416,8 +416,8 @@ var miniInfo = {
   "pat": ["PAT", 0, "PA", "Mini-Tower", 0],
   "lat": ["LAT", 3, "Ring 5", "Mini-Tower", 0],
   "wbat": ["WBAT", 4, "Ring 4", "Mini-Tower", 0],
-  "tat": ["LAT", 5, "Ring 3", "Mini-Tower", 0],
-  "fnat": ["LAT", 5, "Ring 6", "Mini-Tower", 0]
+  "tat": ["TAT", 5, "Ring 3", "Mini-Tower", 0],
+  "fnat": ["FNAT", 5, "Ring 6", "Mini-Tower", 0]
 }
 var PoMMiniInfo = {
   "wat": ["WAT", 10, "PoM", "Mini-Tower", 0]
