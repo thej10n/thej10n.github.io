@@ -1,5 +1,6 @@
 // this is the worst code i have ever written
-var guessNum = 0
+var guessNum = 0;
+var gameFrozen = false;
 var towerInfo = {
 
   // Ring 1
@@ -416,8 +417,8 @@ var miniInfo = {
   "pat": ["PAT", 0, "PA", "Mini-Tower", 0],
   "lat": ["LAT", 3, "Ring 5", "Mini-Tower", 0],
   "wbat": ["WBAT", 4, "Ring 4", "Mini-Tower", 0],
-  "tat": ["TAT", 5, "Ring 3", "Mini-Tower", 0],
-  "fnat": ["FNAT", 5, "Ring 6", "Mini-Tower", 0]
+  "tat": ["LAT", 5, "Ring 3", "Mini-Tower", 0],
+  "fnat": ["LAT", 5, "Ring 6", "Mini-Tower", 0]
 }
 var PoMMiniInfo = {
   "wat": ["WAT", 10, "PoM", "Mini-Tower", 0]
@@ -425,10 +426,10 @@ var PoMMiniInfo = {
 var SoFMInfo = {
   "sofm": ["SoFM", 1, "FR", "Steeple", 0]
 }
-var newTowerInfo = {...towerInfo}
-var answerIndex = Date.now() % Object.keys(towerInfo).length
-var difficulties = ["Easy", "Medium", "Hard", "Difficult", "Challenging", "Intense", "Remorseless", "Insane", "Extreme", "Terrifying", "Catastrophic", "Horrific", "Unreal"]
-var lengths = ["Regular (<20m)", "Long (20-30m)", "Very Long (30-45m)", "Extremely Long (45-60m)", "Ridiculously Long (60-90m)", "Inhumanely Long (90+m)"]
+var newTowerInfo = {...towerInfo};
+var answerIndex = Date.now() % Object.keys(towerInfo).length;
+var difficulties = ["Easy", "Medium", "Hard", "Difficult", "Challenging", "Intense", "Remorseless", "Insane", "Extreme", "Terrifying", "Catastrophic", "Horrific", "Unreal"];
+var lengths = ["Regular (<20m)", "Long (20-30m)", "Very Long (30-45m)", "Extremely Long (45-60m)", "Ridiculously Long (60-90m)", "Inhumanely Long (90+m)"];
 var areaInfo = {
   "Ring 1": [0, 1, 0],
   "Ring 2": [0, 2, 0],
@@ -476,21 +477,36 @@ function areaCategoryTest(a, b) {
   return false;
 }
 function extendArray(a, e) {
-  var k = Object.keys(e)
+  var k = Object.keys(e);
   for (i = 0; i < k.length; i++) {
-    a[k[i]] = e[k[i]]
+    a[k[i]] = e[k[i]];
   }
-  return a
+  return a;
 }
 function submit() {
+  if (gameFrozen) {
+    return;
+  }
   var input = document.getElementById("towerinput").value;
   var towerData = newTowerInfo[input.toLowerCase()];
-  var answerData = newTowerInfo[Object.keys(newTowerInfo)[answerIndex]];
-  var towerAreaInfo = areaInfo[towerData[2]];
-  var answerAreaInfo = areaInfo[answerData[2]];
   if (typeof(towerData) !== "undefined") {
+    var answerData = newTowerInfo[Object.keys(newTowerInfo)[answerIndex]];
+    var towerAreaInfo = areaInfo[towerData[2]];
+    var answerAreaInfo = areaInfo[answerData[2]];
+    
     document.getElementById("towerinput").value = "";
-
+  
+    if (towerData[0] == answerData[0]) {
+      document.getElementById("feedback").innerHTML = "You won! The answer was " + answerData[0];
+      gameFrozen = true;
+      modifyTable(guessNum, 0, towerData[0] + " 🏆");
+      modifyTable(guessNum, 1, difficulties[towerData[1]] + " 🏆");
+      modifyTable(guessNum, 2, towerData[2] + " 🏆");
+      modifyTable(guessNum, 3, towerData[3] + " 🏆");
+      modifyTable(guessNum, 4, lengths[towerData[4]] + " 🏆");
+      return;
+    }
+    
     // Name
     if (towerData[0].length < answerData[0].length) {
       modifyTable(guessNum, 0, towerData[0] + " 🔼");
@@ -543,31 +559,31 @@ function submit() {
     }
     
     guessNum++;
-    if (towerData[0] == answerData[0]) {
-      document.getElementById("feedback").innerHTML = "You won! The answer was " + answerData[0];
-    } else if (guessNum == 6) {
+    if (guessNum == 6) {
       document.getElementById("feedback").innerHTML = "You lost! The answer was " + answerData[0];
+      gameFrozen = true;
     } else {
       document.getElementById("feedback").innerHTML = guessNum + "/6 guesses";
     }
   }
 }
 function reset() {
+  gameFrozen = false;
   guessNum = 0;
-  newTowerInfo = {...towerInfo}
+  newTowerInfo = {...towerInfo};
   if (document.getElementById("includepom").checked) {
-    newTowerInfo = extendArray(newTowerInfo, PoMSCInfo)
+    newTowerInfo = extendArray(newTowerInfo, PoMSCInfo);
     if (document.getElementById("includemini").checked) {
-      newTowerInfo = extendArray(newTowerInfo, PoMMiniInfo)
+      newTowerInfo = extendArray(newTowerInfo, PoMMiniInfo);
     }
   }
   if (document.getElementById("includemini").checked) {
-    newTowerInfo = extendArray(newTowerInfo, miniInfo)
+    newTowerInfo = extendArray(newTowerInfo, miniInfo);
   }
   if (document.getElementById("includesofm").checked) {
-    newTowerInfo = extendArray(newTowerInfo, SoFMInfo)
+    newTowerInfo = extendArray(newTowerInfo, SoFMInfo);
   }
-  answerIndex = Date.now() % Object.keys(newTowerInfo).length
+  answerIndex = Date.now() % Object.keys(newTowerInfo).length;
   for (r = 0; r < 6; r++) {
     for (c = 0; c < 5; c++) {
       modifyTable(r, c, "&#x200B;");
@@ -577,5 +593,5 @@ function reset() {
   document.getElementById("towerinput").value = "";
 }
 function toggle() {
-  document.body.classList.toggle("darkMode")
+  document.body.classList.toggle("darkMode");
 }
