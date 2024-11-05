@@ -36,7 +36,6 @@
       }
     </style>
   </head>
-  <script src="script.js"></script>
   <h1>
     JToRdle // by thej10n
   </h1>
@@ -44,10 +43,10 @@
   <button type="submit" onclick="submit()">
     Submit
   </button>
-  <button type="reset" onclick="reset()">
+  <button id="resetbutton" type="reset" onclick="reset()">
     Reset
   </button>
-  <button type="togglemode" onclick="toggle()">
+  <button type="button" onclick="toggle()">
     Toggle light/dark mode
   </button>
   <br><br>
@@ -133,6 +132,7 @@
       Update Log:
     </h2>
     <div style="line-height: 2;">
+      <b>[05-11-2024]</b> winstreaks <br>
       <b>[30-10-2024]</b> bugfixes <br>
       <b>[28-10-2024]</b> settings + small design update <br>
       <b>[22-10-2024]</b> zone ninth <br>
@@ -140,4 +140,5 @@
       <b>[26-05-2024]</b> release
     </div>
   </p>
+  <script src="script.js"></script>
 </html>
