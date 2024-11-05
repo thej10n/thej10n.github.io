@@ -1,5 +1,7 @@
 // this is the worst code i have ever written
 var guessNum = 0;
+var winstreak = 0;
+var canReset = false;
 var gameFrozen = false;
 var towerInfo = {
 
@@ -483,10 +485,25 @@ function extendArray(a, e) {
   }
   return a;
 }
+function getWinstreakMessage(w) {
+  if (w == 0) {
+    return "";
+  }
+  return " (Winstreak: " + w + ")";
+}
+function setCanReset(newValue) {
+  canReset = newValue;
+  if (canReset) {
+    document.getElementById("resetbutton").innerHTML = "Reset"
+  } else {
+    document.getElementById("resetbutton").innerHTML = "Reset and lose winstreak"
+  }
+}
 function submit() {
   if (gameFrozen) {
     return;
   }
+  setCanReset(false);
   var input = document.getElementById("towerinput").value;
   var towerData = newTowerInfo[input.toLowerCase()];
   if (typeof(towerData) !== "undefined") {
@@ -497,7 +514,8 @@ function submit() {
     document.getElementById("towerinput").value = "";
   
     if (towerData[0] == answerData[0]) {
-      document.getElementById("feedback").innerHTML = "You won! The answer was " + answerData[0];
+      document.getElementById("feedback").innerHTML = "You won! The answer was " + answerData[0] + getWinstreakMessage(winstreak);
+      setCanReset(true);
       gameFrozen = true;
       modifyTable(guessNum, 0, towerData[0] + " 🏆");
       modifyTable(guessNum, 1, difficulties[towerData[1]] + " 🏆");
@@ -560,14 +578,20 @@ function submit() {
     
     guessNum++;
     if (guessNum == 6) {
-      document.getElementById("feedback").innerHTML = "You lost! The answer was " + answerData[0];
+      document.getElementById("feedback").innerHTML = "You lost! The answer was " + answerData[0] + getWinstreakMessage(winstreak);
       gameFrozen = true;
     } else {
-      document.getElementById("feedback").innerHTML = guessNum + "/6 guesses";
+      document.getElementById("feedback").innerHTML = guessNum + "/6 guesses" + getWinstreakMessage(winstreak);
     }
   }
 }
 function reset() {
+  if (canReset) {
+    winstreak += 1;
+    setCanReset(false);
+  } else {
+    winstreak = 0;
+  }
   gameFrozen = false;
   guessNum = 0;
   newTowerInfo = {...towerInfo};
@@ -589,7 +613,7 @@ function reset() {
       modifyTable(r, c, "&#x200B;");
     }
   }
-  document.getElementById("feedback").innerHTML = "0/6 guesses";
+  document.getElementById("feedback").innerHTML = "0/6 guesses" + getWinstreakMessage(winstreak);
   document.getElementById("towerinput").value = "";
 }
 function toggle() {
